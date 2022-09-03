@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row navbar bg-green">
+            <div class="col-12 text-center">
+                <h1>Weather Forecast</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3 bg-light" id="results">
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Search a City:</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="input-group">
+                            <input class="form-control" type="text" id="enterCity"
+                                placeholder="Enter city name"><button type="button" id="search"
+                                class="btn btn-primary"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <ul id="searchHistory" class="list-group"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="weatherinfo" class="col-9 pb-3 pt-3">
+                <div class="row pb-4 mr-3 ml-3">
+                    <div id="citySearched" class="col-12 border"></div>
+                </div>
+
+                <div class="row pb-3 pt-2">
+                    <div class="col-14 ml-3">
+                        <h2>5-Day Forecast:</h2>
+                        <div id="fiveDay" class="row pl-2"></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://kit.fontawesome.com/1d37754851.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

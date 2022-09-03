@@ -1,0 +1,41 @@
+h1 {
+    font-size: 60px;
+    font-weight: 300;
+    color: #f8f8ff;
+    letter-spacing: 5px;
+}
+
+
+.navbar {
+    height: 120px
+    
+}
+
+
+#results,#citySearched,
+.card {
+    background-color: #195c76!important;
+}
+
+#searchResults {
+    height: 100vh;
+}
+
+#searchHistory li {
+    background-color: #20a291;
+    color: #f8f8ff!important;
+    cursor:cell
+}
+
+p {
+    color: #b29258;
+}
+
+
+h2, h3, h4, h5 {
+    color: #f8f8ff;
+}
+
+body {
+    background-color: #2aab91;
+}
