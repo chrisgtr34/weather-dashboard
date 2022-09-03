@@ -15,6 +15,7 @@ h1 {
 #results,#citySearched,
 .card {
     background-color: #195c76!important;
+    width: 9rem;
 }
 
 #searchResults {
