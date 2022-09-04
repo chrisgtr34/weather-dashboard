@@ -76,28 +76,24 @@ function futureCondition(lat, lon) {
         $("#fiveDay").empty();
         
         for (let i = 1; i < 6; i++) {
-            var cityInfo = {
+            var info = {
                 date: response.daily[i].dt,
                 icon: response.daily[i].weather[0].icon,
                 temp: response.daily[i].temp.day,
                 humidity: response.daily[i].humidity
             };
 
-            var date = moment.unix(cityInfo.date).format("MM/DD/YYYY");
-            var weatherIconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${response.daily[i].weather[0].main}" />`;
-
-            // displays the date
-            // an icon representation of weather conditions
-            // the temperature
-            // the humidity
+            var date = moment.unix(info.date).format("MM/DD/YYYY");
+            var weatherIconURL = `<img src="https://openweathermap.org/img/w/${info.icon}.png" alt="${response.daily[i].weather[0].main}" />`;
+            
             var future = $(`
                 <div class="pl-3">
                     <div class="card futureCard bg-primary text-light";>
                         <div class="card-body">
                             <h5>${date}</h5>
                             <p>${weatherIconURL}</p>
-                            <p>Temp: ${cityInfo.temp} °F</p>
-                            <p>Humidity: ${cityInfo.humidity}\%</p>
+                            <p>Temp: ${info.temp} °F</p>
+                            <p>Humidity: ${info.humidity}\%</p>
                         </div>
                     </div>
                 <div>
@@ -107,4 +103,27 @@ function futureCondition(lat, lon) {
         }
     }); 
 }
+
+$("#search").on("click", function(event) {
+    event.preventDefault();
+
+    var cityStorage = $("#enterCity").val().trim();
+    weatherCondition(cityStorage);
+    if (!searchList.includes(cityStorage)) {
+        searchList.push(cityStorage);
+        var searched = $(`
+            <li class="list-group-item">${cityStorage}</li>
+            `);
+        $("#searchHistory").append(searched);
+    };
+    
+    localStorage.setItem("cityStorage", JSON.stringify(searchList));
+});
+
+// WHEN I click on a city in the search history
+// THEN I am again presented with current and future conditions for that city
+$(document).on("click", ".list-group-item", function() {
+    var listedCity = $(this).text();
+    weatherCondition(listedCity);
+});
 
